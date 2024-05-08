@@ -16,18 +16,23 @@ const httpOption = {
   providedIn: 'root'
 })
 export class ApiAuthService {
+
+  //VARUABLES
   url: string = "https://localhost:7159/api/User/login";
 
   private _usuarioSubject: BehaviorSubject<User>;
+  public usuario: Observable<User>;
   public get usuarioData(): User {
     return this._usuarioSubject.value;
   }
 
-  //Aqui esta el constructor xcsi no lo ves 
+  //CONSTRUCTOR
   constructor(private _http: HttpClient) {
-    this._usuarioSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem("usuario")));
+    this._usuarioSubject = new BehaviorSubject<User>(JSON.parse(localStorage.
+      getItem("usuario")));
+    this.usuario = this._usuarioSubject.asObservable();
   }
-
+  //FUNBCIONES
   login(login: Login): Observable<Respuesta> {
     return this._http.post<Respuesta>(this.url, login, httpOption).pipe(
       map(res => {

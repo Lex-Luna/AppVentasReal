@@ -4,7 +4,7 @@ import { Respuesta } from '../Models/respuesta';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiAuthService } from '../services/api-auth.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 const httpOption = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -19,19 +19,23 @@ const httpOption = {
 
 
 export class LoginComponent implements OnInit {
-  public loginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl('')
-  });
 
+
+  //VARIABLE
+  public loginForm = this.formBuilder.group({
+    email: ["", Validators.required],
+    password: ["", Validators.required]
+  });
   url: string = "https://localhost:7159/api/login";
-  // Aqui esta el constructor xsi no lo ves
+  //CONSTRUCTOR
   constructor(public apiAuthService: ApiAuthService,
-    private router: Router) {
-    /* if (this.apiAuthService.usuarioData) {
-      this.router.navigate(["/"]);
-    } */
+    private router: Router,
+    private formBuilder: FormBuilder) {
+    if (this.apiAuthService.usuarioData) {
+      //this.router.navigate(["/"]);
+    }
   }
+  //FUNCIONES
   login() {
     try {
       console.log(this.loginForm.value)
@@ -45,11 +49,9 @@ export class LoginComponent implements OnInit {
     }
 
   }
-  /* login(email: string, password: string): Observable<Respuesta> {
-    return this._http.post<Respuesta>(this.url, { email, password }, httpOption);
-  } */
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    //nada que decir x aqui
   }
 
 }

@@ -20,6 +20,7 @@ import { ClienteComponent } from './cliente/cliente.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogComponent } from './cliente/dialog/dialog.component';
+//se a agregado automaticamnte
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DeleteDialogComponent } from './common/Delete/delete-dialog/delete-dialog.component';
 import { LoginComponent } from './login/login.component';
