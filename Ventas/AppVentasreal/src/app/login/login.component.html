@@ -1,0 +1,19 @@
+<mat-card>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-card-title>Inicio de secion</mat-card-title>
+        <mat-card-content>
+            <p>
+                <mat-form-field>
+                    <input type="text" formControlName="Email" matInput placeholder="Email" />
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input type="password" formControlName="password" matInput placeholder="Contraseña" />
+                </mat-form-field>
+            </p>
+            <button mat-raised-button type="submit" [disabled]="!loginForm.valid">Iniciar secion</button>
+        </mat-card-content>
+    </form>
+</mat-card>
+<p>login works!</p>

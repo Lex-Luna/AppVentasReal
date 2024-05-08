@@ -1,0 +1,6 @@
+@WSVenta_HostAddress = http://localhost:5127
+
+GET {{WSVenta_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
