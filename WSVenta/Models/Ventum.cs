@@ -9,7 +9,7 @@ public partial class Ventum
 
     public DateTime? Fecha { get; set; }
 
-    public string Total { get; set; } = null!;
+    public decimal Total { get; set; }
 
     public long? IdCliente { get; set; }
 
