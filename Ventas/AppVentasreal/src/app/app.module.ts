@@ -27,6 +27,8 @@ import { LoginComponent } from './login/login.component';
 import { JwtInterceptor } from './Security/jwt.interceptor';
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import { VentaComponent } from './venta/venta.component';
+import { DialogVentaComponent } from './venta/dialog-venta/dialog-venta.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http'
     ClienteComponent,
     DialogComponent,
     DeleteDialogComponent,
-    LoginComponent
+    LoginComponent,
+    VentaComponent,
+    DialogVentaComponent
   ],
   imports: [
     BrowserModule,
